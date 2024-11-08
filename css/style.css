@@ -1,0 +1,280 @@
+/* Đặt các mục của thanh điều hướng theo hàng ngang */
+nav {
+    background-color: white; /* Màu nền của nav */
+    border-bottom: 2px solid #002d62; /* Đường viền dưới */
+}
+
+nav ul {
+    list-style: none; /* Bỏ dấu chấm đầu dòng */
+    display: flex; /* Sử dụng Flexbox để xếp các mục theo hàng ngang */
+    justify-content: center; /* Căn giữa các mục trong thanh điều hướng */
+    padding: 15px 0; /* Khoảng cách trên và dưới */
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 30px; /* Khoảng cách giữa các mục */
+}
+
+nav ul li a {
+    text-decoration: none; /* Bỏ gạch chân */
+    color: #002d62; /* Màu chữ */
+    font-weight: 500; /* Độ dày chữ */
+    font-size: 16px; /* Kích thước chữ */
+    transition: color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+nav ul li a:hover {
+    color: #5A1EAC; /* Màu khi rê chuột vào */
+}
+
+nav ul li:first-child a {
+    color: purple; /* Màu riêng cho mục đầu tiên (Solutions) */
+    font-weight: bold; /* Đậm chữ */
+}
+
+/* CSS cho phần Solutions */
+#solutions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.solution-card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+}
+
+.solution-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.teal { color: #00a69c; }     /* Màu xanh biển cho tiêu đề */
+.purple { color: #7c3aed; }   /* Màu tím cho tiêu đề */
+.red { color: #e53935; }      /* Màu đỏ cho tiêu đề */
+.orange { color: #ff9800; }   /* Màu cam cho tiêu đề */
+
+.solution-card p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #7c3aed;
+    border: 2px solid #7c3aed;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.explore-button:hover {
+    background-color: #7c3aed;
+    color: #fff;
+}
+
+.solutions-footer {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.see-all-button {
+    background-color: #7c3aed;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.see-all-button:hover {
+    background-color: #5a2ac1;
+}
+
+
+/* CSS cho phần People */
+#people {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#people h2 {
+    color: #1f2a36;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#people h3 {
+    color: #1f2a36;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.people-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00a69c; /* Màu xanh biển cho số */
+    width: 150px;
+    text-align: left;
+}
+
+.stat-description {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.stat-description p:first-child {
+    font-weight: bold;
+    color: #1f2a36;
+    margin-bottom: 10px;
+}
+
+.stat-description p:last-child {
+    color: #666;
+    font-size: 14px;
+}
+
+.stat-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #7c3aed;
+    border: 2px solid #7c3aed;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.stat-button:hover {
+    background-color: #7c3aed;
+    color: #fff;
+}
+
+
+/* CSS cho phần Hero */
+#hero {
+    background-color: #5A1EAC; /* Màu nền tím */
+    color: #fff; /* Màu chữ trắng */
+    padding: 40px 0%; /* Khoảng cách trên dưới và hai bên */
+    text-align: left; /* Căn trái nội dung */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+#hero h1 {
+    font-size: 2.5em; /* Kích thước chữ lớn cho tiêu đề */
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+#hero p {
+    font-size: 1.1em; /* Kích thước chữ vừa cho đoạn mô tả */
+    margin-bottom: 30px;
+    color: #e0e0e0; /* Màu chữ xám nhạt */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #5A1EAC;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #e0e0e0;
+    color: #5A1EAC;
+}
+
+/* Footer */
+#footer {
+    background: linear-gradient(90deg, #002e5b, #004080); /* Màu nền gradient xanh dương */
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-height: 40px;
+}
+
+.footer-contact, .footer-address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.contact-icon {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.footer-address p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Điều chỉnh chiều cao nếu cần */
+  }
