@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power BI Embedded Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.19.1/powerbi.min.js"></script>
+</head>
+<body>
+    <h1>Power BI Embedded Report</h1>
+    <section id="powerBIReportContainer" style="height: 600px; width: 100%;"></section>
+
+    <script>
+        const reportConfig = {
+            type: 'report',
+            id: '6fcd2d79-0032-4871-9d3b-f7b1e3b123fd',  // Thay với Report ID của bạn
+            embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=6fcd2d79-0032-4871-9d3b-f7b1e3b123fd&autoAuth=true&ctid=36edbf63-836b-43ab-af27-aeff09ce37aa', // Thay với Embed URL từ Power BI Service
+            accessToken: 'ACCESS_TOKEN', // Thay với Access Token hợp lệ
+            tokenType: window['powerbi-client'].models.TokenType.Embed,
+            settings: {
+                panes: {
+                    filters: { visible: true },
+                    pageNavigation: { visible: true }
+                }
+            }
+        };
+
+        function embedReport() {
+            const reportContainer = document.getElementById('powerBIReportContainer');
+            const powerbi = new window['powerbi-client'].service.Service();
+            powerbi.embed(reportContainer, reportConfig);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            embedReport();
+        });
+    </script>
+</body>
+</html>

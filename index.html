@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
+    <title>Power BI Embedded Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.18.6/powerbi.min.js"></script>
     <!-- CSS dùng chung cho toàn trang -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -52,6 +53,7 @@
 
             <!--Nhúng báo cáo-->
             <div class="iframe-container">
+                <iframe title="Acecook" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=b21bcb89-dc0b-4b48-bfb1-4e58dc215a72&autoAuth=true&ctid=36edbf63-836b-43ab-af27-aeff09ce37aa" frameborder="0" allowFullScreen="true"></iframe>
                 <iframe title="Sample Report Demo" width="1140" height="541.25" src="https://playground.powerbi.com/sampleReportEmbed" frameborder="0" allowFullScreen="true"></iframe>
             </div>
 
@@ -86,7 +88,44 @@
                 <a href="#" class="stat-button">Diversity, equity and inclusion</a>
             </div>
         </section>
+        <script>
+            // Khai báo thông tin báo cáo
+            const reportConfig = {
+                type: 'report',
+                id: '6fcd2d79-0032-4871-9d3b-f7b1e3b123fd',  // Thay thế ID_BAO_CAO bằng Report ID từ Power BI Service
+                embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=6fcd2d79-0032-4871-9d3b-f7b1e3b123fd&autoAuth=true&ctid=36edbf63-836b-43ab-af27-aeff09ce37aa', // Thay thế URL_NHUNG bằng Embed URL từ Power BI Service
+                accessToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjNQYUs0RWZ5Qk5RdTNDdGpZc2EzWW1oUTVFMCIsImtpZCI6IjNQYUs0RWZ5Qk5RdTNDdGpZc2EzWW1oUTVFMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMmU4ZGEzNDUtN2M2OS00NjFjLTkwYzgtYmM0NjVlMTNjYzBmLyIsImlhdCI6MTczMTMxNjY0NywibmJmIjoxNzMxMzE2NjQ3LCJleHAiOjE3MzEzMjA1NDcsImFpbyI6ImsyQmdZTmpHSEorYWNsYmgxclJOTTJla3VieTVDUUE9IiwiYXBwaWQiOiI0ZWI1NDJhNS0wMDE3LTQ4NjktYTMwNy0zNjI5OTE0ODgzYWIiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZThkYTM0NS03YzY5LTQ2MWMtOTBjOC1iYzQ2NWUxM2NjMGYvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI4Yzg4MTQ5YS1hMTk1LTQzNGQtOWJkMC1hOGY1ODgyNmRmMmIiLCJyaCI6IjEuQVhFQVJhT05MbWw4SEVhUXlMeEdYaFBNRHdrQUFBQUFBQUFBd0FBQUFBQUFBQURBQUFCeEFBLiIsInN1YiI6IjhjODgxNDlhLWExOTUtNDM0ZC05YmQwLWE4ZjU4ODI2ZGYyYiIsInRpZCI6IjJlOGRhMzQ1LTdjNjktNDYxYy05MGM4LWJjNDY1ZTEzY2MwZiIsInV0aSI6IlI4bTNmSjgtR2tHX0U2UF82eXF3QUEiLCJ2ZXIiOiIxLjAiLCJ4bXNfaWRyZWwiOiI3IDI0In0.WBOnlFX2KnMTAx71fafJJnS_UcSiGOswxlleYIq86wpoMiXh3Acj9ex75EXCS8Mf5e3eMyKUiYZStRxx3LcEGRKW72SkYeI3QwwWcDptybJBGN2T0eHyxSo27KeYPgOv4TLj6UhxJGNQU3_KeEL8TAd7ethCiuSGEUxkS0vIHrSDHO-8-mkAGbTGwZlDSLIwfUcF4_aGRwIM2Ele5WV5SsSPeknZhkFOYK_Frq36R4D8TBM2dtQPl9us5KQr-tyVFw8m9EKq7LW4llUjF6JQl25-lHtmeoHnI__TSC2DsnusYA8RTxBhZ0x3p_sVOxDtYvIDeB4YWWSdNwzDwTcwCw', // Thay thế ACCESS_TOKEN bằng Access Token vừa lấy được
+                tokenType: window['powerbi-client'].models.TokenType.Embed,
+                settings: {
+                    panes: {
+                        filters: {
+                            visible: true
+                        },
+                        pageNavigation: {
+                            visible: true
+                        }
+                    }
+                }
+            };
         
+            // Nhúng báo cáo vào trang web
+            function embedReport() {
+                // Xác định phần tử HTML để hiển thị báo cáo
+                const reportContainer = document.getElementById('powerBIReportContainer');
+                
+                // Nhúng báo cáo bằng Power BI JavaScript Client
+                const powerbi = new window['powerbi-client'].service.Service(window['powerbi-client'].factories.hpmFactory);
+                powerbi.embed(reportContainer, reportConfig);
+            }
+        
+            // Gọi hàm nhúng
+            embedReport();
+        </script>
+        
+        <section>
+
+        </section>
+
 
         
     </main>
